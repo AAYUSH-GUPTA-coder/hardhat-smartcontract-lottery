@@ -6,7 +6,6 @@ require("hardhat-gas-reporter")
 require("hardhat-contract-sizer")
 require("dotenv").config()
 
-
 const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL
 const GOERLI_PRIVATE_KEY = process.env.GOERLI_PRIVATE_KEY
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
@@ -23,8 +22,15 @@ module.exports = {
             chainId: 5,
             blockConfirmation: 6,
             url: GOERLI_RPC_URL,
-            accounts: [GOERLI_PRIVATE_KEY]
-        }
+            accounts: [GOERLI_PRIVATE_KEY],
+        },
+    },
+    gasReporter: {
+        enabled: false,
+        currency: "USD",
+        outputFile: "gas-report.txt",
+        noColors: true,
+        coinmarketcap: COINMARKETCAP_API_KEY,
     },
     solidity: {
         compilers: [
@@ -35,7 +41,6 @@ module.exports = {
                 version: "0.4.24",
             },
         ],
-        
     },
     namedAccounts: {
         deployer: {
