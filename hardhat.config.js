@@ -25,8 +25,13 @@ module.exports = {
             accounts: [GOERLI_PRIVATE_KEY],
         },
     },
+    etherscan: {
+        apiKey: {
+            goerli: ETHERSCAN_API_KEY,
+        },
+    },
     gasReporter: {
-        enabled: false,
+        enabled: true,
         currency: "USD",
         outputFile: "gas-report.txt",
         noColors: true,
@@ -48,6 +53,11 @@ module.exports = {
         },
         player: {
             default: 1,
+        },
+    },
+    mocha: {
+        timeout: {
+            timeout: 200000, // 200 seconds
         },
     },
 }
